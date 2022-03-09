@@ -46,6 +46,7 @@ python code/ft_coh_model.py \
         --model_path  coh_models/ \
         --model_name roberta-large --model_type roberta \
 
+You can skip this step and download the trained DEAM model from [here](https://drive.google.com/file/d/1JyPnt_hPqYdjaQZ1mQvHChsw2q3wWtxZ/).
 
 
 ### 4. Predict using DEAM
