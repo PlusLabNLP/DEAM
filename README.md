@@ -23,7 +23,7 @@ In order to train DEAM, first you need to create negative samples using AMRs.
 ### 1. Parse conversations and get their AMRs
 In this step, first you need to have text-to-AMR and AMR-to-text models. 
 Follow [amrlib](https://github.com/bjascob/amrlib) github page to download two finetuned T5 models 1) model_parse_t5-v0_1_0 as the text-to-AMR model and model_generate_t5-v0_1_0 as the AMR-to-text model. For your convinience, these models can be downloaded from [amr_models](). You need to place this folder in th root. We use the model_parse_t5-v0_1_0 model to parse the conversations and retrieve AMRs.
-You can download the input data from Topical\_chat and Persona\_chat datasets from [here](https://drive.google.com/drive/folders/1W5xfB3UwjYOB4AM7vCINXCe4LRO0RzPk). You needd to save this folder in the root.
+You can download the input data from Topical\_chat and Persona\_chat datasets from [here](https://drive.google.com/drive/folders/1W5xfB3UwjYOB4AM7vCINXCe4LRO0RzPk). You needd to save this folder in the data directory.
 
 python utils/amr_parse_convs.py --path data/topical_persona/ --fname train
 
@@ -32,7 +32,7 @@ python utils/amr_parse_convs.py --path data/topical_persona/ --fname train
 ### 2. AMRs manipulations
 In this step, we apply DEAM's manipulations to the extracted AMRs of the conversations and generate conversations from the manipulated AMRs leveraging the AMR-to-text model. 
 
-python code/manipulate_amr_incoherent_convs_submit_ver.py --data_path data/topical_persona/ --o_data_path data/topical_persona/ --fname train
+python code/manipulate_amr_incoherent_convs.py --data_path data/topical_persona/ --o_data_path data/topical_persona/ --fname train
 
 
 
@@ -68,7 +68,7 @@ python utils/compute_correlation.py  --model_path coh_models/
 
 
 
-##Ablation Study
+## Ablation Study
 We ignore each of the four manipulations in the negative samples generation step to examine their effectiveness. The results of the training data following different ablations can be found in the downloaded topical_persona/ folder.
 To train DEAM using ablations, predict scores and compute the correlations between DEAM's scores with human judgments, you can follow next steps (here we only show the scripts for the Contradiction ablation as an example):
 
