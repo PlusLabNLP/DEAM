@@ -22,7 +22,7 @@ In order to train DEAM, first you need to create negative samples using AMRs.
 
 ### 1. Parse conversations and get their AMRs
 In this step, first you need to have text-to-AMR and AMR-to-text models. 
-Follow [amrlib](https://github.com/bjascob/amrlib) github page to download two finetuned T5 models 1) model_parse_t5-v0_1_0 as the text-to-AMR model and model_generate_t5-v0_1_0 as the AMR-to-text model. For your convinience, these models can be downloaded from [amr_models](). You need to place this folder in th root. We use the model_parse_t5-v0_1_0 model to parse the conversations and retrieve AMRs.
+Follow [amrlib](https://github.com/bjascob/amrlib) github page to download two finetuned T5 models 1) model_parse_t5-v0_1_0 as the text-to-AMR model and model_generate_t5-v0_1_0 as the AMR-to-text model. For your convinience, these models can be downloaded from [amr_models](https://drive.google.com/drive/folders/1usim4Xu0jns_aKQK73RUTle0z_wzIqvR). You need to place this folder in th root. We use the model_parse_t5-v0_1_0 model to parse the conversations and retrieve AMRs.
 You can download the input data from Topical\_chat and Persona\_chat datasets from [here](https://drive.google.com/drive/folders/1W5xfB3UwjYOB4AM7vCINXCe4LRO0RzPk). You needd to save this folder in the data directory.
 
 python utils/amr_parse_convs.py --path data/topical_persona/ --fname train
